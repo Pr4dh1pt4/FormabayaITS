@@ -1,0 +1,139 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { Mail, Phone, Instagram, Linkedin, ArrowUp, Send } from 'lucide-react';
+
+export default function Footer() {
+    const currentYear = new Date().getFullYear();
+
+    const socialLinks = [
+        {
+            name: 'Instagram',
+            icon: Instagram,
+            url: 'https://www.instagram.com/formabayaits?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+            handle: '@formabaya',
+        },
+        {
+            name: 'LinkedIn',
+            icon: Linkedin,
+            url: 'https://www.linkedin.com/company/ini-lho-its/',
+            handle: 'Ini Lho ITS!',
+        },
+    ];
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    return (
+        <footer id="contact" className="bg-[#5D1F1E] text-white relative overflow-hidden pt-20">
+            {/* Background Pattern */}
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#CB6F4A] to-transparent opacity-50" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                    {/* Brand */}
+                    <div className="lg:col-span-1">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="space-y-6"
+                        >
+                            <h3 className="text-3xl font-bold">
+                                <span className="text-[#CB6F4A]">Form</span>abaya
+                            </h3>
+                            <p className="text-white/70 leading-relaxed text-sm">
+                                Empowering youth through innovation and community engagement.
+                                Building future leaders, one event at a time.
+                            </p>
+                        </motion.div>
+                    </div>
+
+                    {/* Quick Links */}
+                    <div>
+                        <h4 className="text-lg font-bold mb-6 text-[#EECB88]">Quick Links</h4>
+                        <ul className="space-y-3 text-white/80">
+                            {['Home', 'About Us', 'Vision', 'Activities', 'Events'].map((item) => (
+                                <li key={item}>
+                                    <button
+                                        onClick={() => document.getElementById(item.toLowerCase().replace(' ', ''))?.scrollIntoView({ behavior: 'smooth' })}
+                                        className="hover:text-[#CB6F4A] transition-colors flex items-center gap-2 group"
+                                    >
+                                        <span className="w-0 h-[1px] bg-[#CB6F4A] transition-all duration-300 group-hover:w-4" />
+                                        {item}
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Contact Info */}
+                    <div>
+                        <h4 className="text-lg font-bold mb-6 text-[#EECB88]">Get in Touch</h4>
+                        <div className="space-y-4">
+                            <a
+                                href="https://wa.me/6281235104668"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center text-white/80 hover:text-white group"
+                            >
+                                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mr-3 group-hover:bg-[#CB6F4A] transition-colors">
+                                    <Phone className="w-4 h-4" />
+                                </div>
+                                <span>+62 812-3510-4668</span>
+                            </a>
+                            <a
+                                href="mailto:formabaya.forda@gmail.com"
+                                className="flex items-center text-white/80 hover:text-white group"
+                            >
+                                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mr-3 group-hover:bg-[#CB6F4A] transition-colors">
+                                    <Mail className="w-4 h-4" />
+                                </div>
+                                <span>formabaya.forda@gmail.com</span>
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                    {/* Follow Us */}
+                    <div>
+                        <h4 className="text-lg font-bold mb-6 text-[#EECB88]">Follow Us</h4>
+                        <p className="text-white/70 text-sm mb-6">Connect with us on social media for updates.</p>
+                        <div className="flex gap-4">
+                            {socialLinks.map((social, index) => (
+                                <a
+                                    key={index}
+                                    href={social.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#CB6F4A] transition-colors group"
+                                    aria-label={social.name}
+                                >
+                                    <social.icon className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bottom Bar */}
+                <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-center md:justify-end items-center gap-4 relative">
+                    <p className="text-white/50 text-sm md:absolute md:left-1/2 md:-translate-x-1/2">
+                        © {currentYear} Formabaya.
+                    </p>
+                    <button
+                        onClick={scrollToTop}
+                        className="group flex items-center gap-2 text-sm font-medium text-white/70 hover:text-[#CB6F4A] transition-colors"
+                    >
+                        Back to Top
+                        <span className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#CB6F4A] transition-colors">
+                            <ArrowUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </footer>
+    );
+}
