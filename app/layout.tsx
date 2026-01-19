@@ -13,13 +13,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Formabaya - Empowering Youth Through Innovation",
-  description: "Join Formabaya, a dynamic organization dedicated to empowering youth through innovative educational programs, community engagement, and impactful events. Building future leaders together.",
+  title: "Formabaya - Forum Mahasiswa Blitar Raya ITS",
+  description: "Berjaya Bersama Tanah Para Raja.",
   keywords: ["Formabaya", "youth organization", "educational programs", "community development", "youth empowerment", "innovation"],
   authors: [{ name: "Formabaya" }],
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png", 
+  },
   openGraph: {
-    title: "Formabaya - Empowering Youth Through Innovation",
-    description: "Join Formabaya and be part of something extraordinary. Empowering youth through innovation and community engagement.",
+    title: "Formabaya - Forum Mahasiswa Blitar Raya ITS",
+    description: "Berjaya Bersama Tanah Para Raja.",
     type: "website",
   },
 };
